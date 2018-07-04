@@ -138,7 +138,8 @@ function ()   -- $3$
 end,
 }
 
-file = os.tmpname()
+--file = os.tmpname()
+file = "/tmp/test.lua.bigfile"
 io.output(file)
 for s in string.gmatch(prog, "$([^$]+)") do
   local n = tonumber(s)

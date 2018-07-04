@@ -369,7 +369,7 @@ do
   -- "argerror" without frames
   assert(T.checkpanic("loadstring 4") ==
       "bad argument #4 (string expected, got no value)")
-  
+
 
   -- memory error
   T.totalmem(T.totalmem()+10000)   -- set low memory limit (+10k)
@@ -1031,7 +1031,10 @@ return true
 
 -- testing memory x dofile
 _G.a = nil
-local t =os.tmpname()
+
+-- tmpname is not supported in riot
+-- local t =os.tmpname()
+local t = "/tmp/test.dofile"
 local f = assert(io.open(t, "w"))
 f:write(testprog)
 f:close()
@@ -1057,7 +1060,9 @@ testamem("dump/undump", function ()
   return a and a()
 end)
 
-local t = os.tmpname()
+-- tmpname is not supported in RIOT
+-- local t = os.tmpname()
+local t = "/tmp/test.file.creation" -- in a fresh test environment the file will not exist
 testamem("file creation", function ()
   local f = assert(io.open(t, 'w'))
   assert (not io.open"nomenaoexistente")

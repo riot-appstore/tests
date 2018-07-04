@@ -43,17 +43,19 @@ assert(not a and type(b) == "string" and type(c) == "number")
 a,b,c = io.open('/a/b/c/d', 'w')
 assert(not a and type(b) == "string" and type(c) == "number")
 
-local file = os.tmpname()
+--local file = os.tmpname()
+local file = "/tmp/test.lua.files.1"
 local f, msg = io.open(file, "w")
 if not f then
-  (Message or print)("'os.tmpname' file cannot be open; skipping file tests")
+  (Message or print)("file cannot be open; skipping file tests")
 
 else  --{  most tests here need tmpname
 f:close()
 
 print('testing i/o')
 
-local otherfile = os.tmpname()
+-- local otherfile = os.tmpname()
+local otherfile = "/tmp/test.lua.files.other"
 
 checkerr("invalid mode", io.open, file, "rw")
 checkerr("invalid mode", io.open, file, "rb+")
