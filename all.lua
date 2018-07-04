@@ -51,8 +51,8 @@ math.randomseed(0)
 
 ]=]
 
-print("current path:\n****" .. package.path .. "****\n")
-
+--print("current path:\n****" .. package.path .. "****\n")
+print("current path:\n****" .. "NOT SUPPORTED ON RIOT" .. "****\n")
 
 local initclock = os.clock()
 local lastclock = initclock

@@ -1,6 +1,11 @@
 -- $Id: attrib.lua,v 1.64 2016/01/07 16:46:37 roberto Exp roberto $
 -- See Copyright Notice in file all.lua
 
+if (1) then
+  print("Skipping <require> tests: Not supported on RIOT")
+  return 27
+end
+
 print "testing require"
 
 assert(require"string" == string)
@@ -398,7 +403,7 @@ a[1], f(a)[2], b, c = {['alo']=assert}, 10, a[1], a[f], 6, 10, 23, f(a), 2
 a[1].alo(a[2]==10 and b==10 and c==print)
 
 
--- test of large float/integer indices 
+-- test of large float/integer indices
 
 -- compute maximum integer where all bits fit in a float
 local maxint = math.maxinteger
